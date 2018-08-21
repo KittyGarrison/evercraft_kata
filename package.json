@@ -7,8 +7,7 @@
     "test": "mocha src/main.spec.js"
   },
   "repository": {
-    "type": "git",
-    "url":
+    "type": "git"
   },
   "author": "Kitty Garrison",
   "license": "ISC",

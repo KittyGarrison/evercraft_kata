@@ -21,7 +21,8 @@ function Character(name) {
   this.isDead = isDead;
 
   this.hit = hit;
-  this.ability = abilities.abilities[0];
+
+  this.getModifier = getModifier;
 };
 
 // static method on Character
@@ -31,7 +32,6 @@ Character.create = function create(name) {
 
 function getName(){
   return this.name;
-  console.log(this.ability);
 }
 
 function setName(name){
@@ -79,3 +79,8 @@ function hit(opponent, roll, damage){
     return false
   }
 };
+
+function getModifier(score) {
+  const points = (Math.floor(score/2))-5;
+  return points;
+}
