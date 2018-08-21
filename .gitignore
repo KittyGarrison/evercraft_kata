@@ -33,6 +33,9 @@ build/
 .gradle/
 gradle.properties
 
+# Node
+node_modules/
+
 # Others
 *~
 .DS_Store
