@@ -1,5 +1,6 @@
 module.exports = Character;
 const abilities = require('./abilities') ;
+const {rollDie, flipCoin} = require('./util');
 
 
 // constructor function
@@ -91,9 +92,4 @@ function hit(opponent, roll, damage){
 function getModifier(score) {
   const points = (Math.floor(score/2))-5;
   return points;
-}
-
-function rollDie(sides) {
-  // some loop can add up more than 1 die
-  return Math.floor(Math.random()*sides+1);
 }
