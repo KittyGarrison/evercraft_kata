@@ -80,14 +80,23 @@ describe('Character', function() {
       character.hit(opponent, roll, 5);
       expect(opponent.isDead()).to.be.true;
     });
+    it('will be a random roll if none is given', function () {
+      character.hit(opponent, roll, 5);
+      
+    })
   });
   describe('abilities', function () {
     const character = Character.create();
+    const opponent = Character.create();
     it('should have modifiers given a score', function () {
       expect(character.getModifier(4)).to.equal(-3);
       expect(character.getModifier(11)).to.equal(0);
       expect(character.getModifier(20)).to.equal(5);
-    })
+    }),
+    it("should have a score that is a number", function () {
+      expect(character.abilities.str.score).to.be.a('number')
+    }),
+    it('should add strength modifier to damage')
 
   })
 });

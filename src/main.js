@@ -21,8 +21,10 @@ function Character(name) {
   this.isDead = isDead;
 
   this.hit = hit;
+  this.rollDie = rollDie;
 
   this.getModifier = getModifier;
+  this.abilities = abilities;
 };
 
 // static method on Character
@@ -69,9 +71,15 @@ function isDead() {
 };
 
 function hit(opponent, roll, damage){
+  if (isNaN(roll)) {
+    roll = this.rollDie(20);
+  }
+
   if (roll === 20) {
     damage = damage*2
-  }
+  };
+  let modifier = getModifier(this.abilities.str.score);
+  damage = damage + modifier;
   if (opponent.getArmorClass() <= roll) {
     opponent.reduseHitPoints(damage);
     return true
@@ -83,4 +91,11 @@ function hit(opponent, roll, damage){
 function getModifier(score) {
   const points = (Math.floor(score/2))-5;
   return points;
+}
+
+function rollDie(sides) {
+  // some loop can add up more than 1 die
+  let roll = Math.floor(Math.random()*sides+1);
+  console.log('this is a roll '+ roll);
+  return roll
 }
