@@ -46,8 +46,12 @@ describe('Character', function() {
     });
   });
   describe('attack', function () {
-    const character = Character.create();
-    const opponent = Character.create();
+    let character;
+    let opponent;
+    beforeEach(function functionName() {
+      character = Character.create();
+      opponent = Character.create();
+    })
     it('should be capable of determining hit', function () {
       const roll = 20;
       expect(character.hit(opponent, roll)).to.be.true;
@@ -58,32 +62,33 @@ describe('Character', function() {
     })
   });
   describe('damage', function () {
-    const character = Character.create();
-    const opponent = Character.create();
-    let roll;
+    let character;
+    let opponent;
+    beforeEach(function functionName() {
+      character = Character.create();
+      opponent = Character.create();
+    })
+
     it('should be delt if hit', function () {
-      roll = 17;
+      const roll = 17;
       const startingHP = opponent.getHP();
       character.hit(opponent, roll, 1);
       const damagedHP = opponent.getHP();
       expect(startingHP > damagedHP).to.be.true;
     });
     it('should be double on crit', function () {
-      roll = 20;
+      const roll = 20;
       const startingHP = opponent.getHP();
       character.hit(opponent, roll, 1);
       const damagedHP = opponent.getHP();
       expect((startingHP - damagedHP) === 2).to.be.true;
     });
     it('should cause death when HP is 0 or fewer', function () {
-      roll = 15;
+      const roll = 15;
       character.hit(opponent, roll, 5);
       expect(opponent.isDead()).to.be.true;
     });
-    it('will be a random roll if none is given', function () {
-      character.hit(opponent, roll, 5);
-      
-    })
+    it('will be a random roll if none is given')
   });
   describe('abilities', function () {
     const character = Character.create();

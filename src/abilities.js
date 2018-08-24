@@ -1,4 +1,4 @@
-{
+module.exports = {
   "str" : {
     "score" : 10,
     "name" :  "Strength"
