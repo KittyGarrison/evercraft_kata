@@ -35,61 +35,24 @@ describe('Character', function() {
       expect(character.getAlignment()).to.equal('good');
     });
   });
-  describe('armor class and hit pts',function () {
+  describe('armor class',function () {
     it('should have a default armor class', function () {
       const character = Character.create();
       expect(character.getArmorClass()).to.equal(10);
     });
-    it('should have default hit points', function () {
+  });
+  describe('hit points', function () {
+    it('should have default a defult', function () {
       const character = Character.create();
       expect(character.getHP()).to.equal(5);
     });
-  });
-  describe('attack', function () {
-    let character;
-    let opponent;
-    beforeEach(function functionName() {
-      character = Character.create();
-      opponent = Character.create();
-    })
-    it('should be capable of determining hit', function () {
-      const roll = 20;
-      expect(character.hit(opponent, roll)).to.be.true;
+    it('should be reduced if hit', function () {
+      const character = Character.create();
+      character.reduseHitPoints(3);
+      const damagedHP = character.getHP();
+      expect(character.getHP()).to.equal(2);
     });
-    it('should be capable of determining miss', function () {
-      const roll = 1;
-      expect(character.hit(opponent, roll)).to.be.false;
-    })
-  });
-  describe('damage', function () {
-    let character;
-    let opponent;
-    beforeEach(function functionName() {
-      character = Character.create();
-      opponent = Character.create();
-    })
-
-    it('should be delt if hit', function () {
-      const roll = 17;
-      const startingHP = opponent.getHP();
-      character.hit(opponent, roll, 1);
-      const damagedHP = opponent.getHP();
-      expect(startingHP > damagedHP).to.be.true;
-    });
-    it('should be double on crit', function () {
-      const roll = 20;
-      const startingHP = opponent.getHP();
-      character.hit(opponent, roll, 1);
-      const damagedHP = opponent.getHP();
-      expect((startingHP - damagedHP) === 2).to.be.true;
-    });
-    it('should cause death when HP is 0 or fewer', function () {
-      const roll = 15;
-      character.hit(opponent, roll, 5);
-      expect(opponent.isDead()).to.be.true;
-    });
-    it('will be a random roll if none is given')
-  });
+  })
   describe('abilities', function () {
     const character = Character.create();
     const opponent = Character.create();

@@ -81,12 +81,7 @@ function hit(opponent, roll, damage){
   };
   let modifier = getModifier(this.abilities.str.score);
   damage = damage + modifier;
-  if (opponent.getArmorClass() <= roll) {
-    opponent.reduseHitPoints(damage);
-    return true
-  }else {
-    return false
-  }
+        opponent.reduseHitPoints(damage);
 };
 
 function getModifier(score) {
