@@ -21,7 +21,7 @@ function Character(name) {
   this.reduseHitPoints = reduseHitPoints;
   this.isDead = isDead;
 
-  this.hit = hit;
+  // this.hit = hit;
   this.rollDie = rollDie;
 
   this.getModifier = getModifier;
@@ -71,18 +71,18 @@ function isDead() {
   return (this.hitPoints <= 0)
 };
 
-function hit(opponent, roll, damage){
-  if (isNaN(roll)) {
-    roll = this.rollDie(20);
-  }
-
-  if (roll === 20) {
-    damage = damage*2
-  };
-  let modifier = getModifier(this.abilities.str.score);
-  damage = damage + modifier;
-        opponent.reduseHitPoints(damage);
-};
+// function hit(opponent, roll, damage){
+//   if (isNaN(roll)) {
+//     roll = this.rollDie(20);
+//   }
+//
+//   if (roll === 20) {
+//     damage = damage*2
+//   };
+//   let modifier = getModifier(this.abilities.str.score);
+//   damage = damage + modifier;
+//         opponent.reduseHitPoints(damage);
+// };
 
 function getModifier(score) {
   const points = (Math.floor(score/2))-5;

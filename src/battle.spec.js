@@ -13,8 +13,10 @@ describe('Battle', function () {
       attacker = Character.create();
       defender = Character.create();
     })
-    it('should be capable of determining hit', function () {
-
+    it('should be capable of determining crit', function () {
+      const roll = 20;
+      expect(Battle.isCrit(20)).to.be.true;
+      expect(Battle.isCrit(19)).to.be.false;
     })
 
     it('should be capable of determining hit', function () {
