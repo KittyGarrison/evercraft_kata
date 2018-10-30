@@ -9,7 +9,7 @@
   "repository": {
     "type": "git"
   },
-  "author": "Kitty Garrison change",
+  "author": "Kitty Garrison",
   "license": "ISC",
   "homepage": "https://github.com/PuttingTheDnDInTDD/EverCraft-Kata#readme",
   "devDependencies": {
