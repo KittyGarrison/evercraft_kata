@@ -22,6 +22,9 @@ module.exports = {
   "char" : {
     "score" : 10,
     "name" :  "Charisma"
+  },
+  "fake" : {
+    "need": "a change",
+    "so" : "here it is"  
   }
-
 }
